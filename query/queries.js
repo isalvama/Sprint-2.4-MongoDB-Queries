@@ -5,31 +5,31 @@ db.restaurants.find()
 db.restaurants.find({restaurant_id: 1, name: 1})
 
 // 3. Mostrar el restaurant_id, name, borough i cuisine.
-
+db.restaurants.find({},{restaurant_id: 1, name: 1, borough: 1, cuisine: 1})
 
 // 4. Mostrar restaurant_id, name, borough i zip code.
-
+db.restaurants.find({},{restaurant_id: 1, name: 1, borough: 1, address: { zipcode: 1}})
 
 // 5. Mostrar tots els restaurants que estan en el Bronx.
-
+db.restaurants.find({'borough': 'Bronx'})
 
 // 6. Mostrar els primers 5 restaurants que estan en el Bronx.
-
+db.restaurants.find({'borough': 'Bronx'}).limit(5)
 
 // 7. Mostrar el pròxims 5 restaurants després de saltar els primers 5 del Bronx.
-
+db.restaurants.find({'borough': 'Bronx'}).skip(5).limit(5)
 
 // 8. Trobar els restaurants amb un score de més de 90.
-
+db.restaurants.find({'borough': 'Bronx'}).skip(5).limit(5)
 
 // 9. Trobar els restaurants amb un score de més de 80 però menys que 100.
-
+db.restaurants.find({['grades.score']: {$gt: 90, $lt: 100}})
 
 // 10. Trobar els restaurants amb longitud menor que -95.754168.
-
+db.restaurants.find({"location.coordinates.0": {$lt: -95.754168}})
 
 // 11. Trobar restaurants que no preparen 'American', amb qualificació > 70 i longitud < -65.754168.
-
+db.restaurants.find({$and: [{"cuisine": {$ne: 'American'}},{"grades.grade": {$gt: 70}}, {"location.coordinates.0": {$lt: -65.754168}}]})
 
 // 12. El mateix que l'anterior però sense usar operador $and.
 
