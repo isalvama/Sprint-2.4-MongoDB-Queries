@@ -22,6 +22,9 @@
 - ✔️ OK - Query **[ 7 ]**
 
 ---
+- ✔️ OK - Query **[ 8 ]**
+
+---
 - ❌ MISMATCH - Query **[ 9 ]** Result does not match expected output.
 
 
@@ -56,12 +59,7 @@
 - ✔️ OK - Query **[ 16 ]**
 
 ---
-- ❌ MISMATCH - Query **[ 17 ]** Result does not match expected output.
-
-
-🔢 Different result lengths: 
-- **Expected:** 22
-- **Got:** 275
+- ✔️ OK - Query **[ 17 ]**
 
 ---
 - ✔️ OK - Query **[ 18 ]**
@@ -92,28 +90,13 @@
 - ✔️ OK - Query **[ 23 ]**
 
 ---
-- ❌ MISMATCH - Query **[ 25 ]** Result does not match expected output.
-
-
-🧩 Mismatch at position 0:
-- **Expected:** {"address":{},"borough":"Bronx","cuisine":"Bakery","grades":[{},{},{},{},{}],"location":{},"name":"Morris Park Bake Shop","restaurant_id":30075445}
-- **Actual:** {"_id":"69ce352d44f7a3c8e8ec78a1","address":{},"borough":"Bronx","cuisine":"Bakery","grades":[{},{},{},{},{}],"location":{},"name":"Morris Park Bake Shop","restaurant_id":30075445}
+- ✔️ OK - Query **[ 25 ]**
 
 ---
-- ❌ MISMATCH - Query **[ 26 ]** Result does not match expected output.
-
-
-🧩 Mismatch at position 0:
-- **Expected:** {"address":{},"borough":"Bronx","cuisine":"Bakery","grades":[{},{},{},{},{}],"location":{},"name":"Morris Park Bake Shop","restaurant_id":30075445}
-- **Actual:** {"_id":"69ce352d44f7a3c8e8ec78a1","address":{},"borough":"Bronx","cuisine":"Bakery","grades":[{},{},{},{},{}],"location":{},"name":"Morris Park Bake Shop","restaurant_id":30075445}
+- ✔️ OK - Query **[ 26 ]**
 
 ---
-- ❌ MISMATCH - Query **[ 27 ]** Result does not match expected output.
-
-
-🧩 Mismatch at position 0:
-- **Expected:** {"address":{},"borough":"Bronx","cuisine":"Bakery","grades":[{},{},{},{},{}],"location":{},"name":"Morris Park Bake Shop","restaurant_id":30075445}
-- **Actual:** {"_id":"69ce352d44f7a3c8e8ec78a1","address":{},"borough":"Bronx","cuisine":"Bakery","grades":[{},{},{},{},{}],"location":{},"name":"Morris Park Bake Shop","restaurant_id":30075445}
+- ✔️ OK - Query **[ 27 ]**
 
 ---
 - ❌ MISMATCH - Query **[ 28 ]** Result does not match expected output.
@@ -140,7 +123,7 @@
 
 🔢 Different result lengths: 
 - **Expected:** 10
-- **Got:** 7
+- **Got:** 9
 
 ---
 - ❌ MISMATCH - Query **[ 32 ]** Result does not match expected output.
