@@ -59,7 +59,7 @@ db.restaurants.find({"borough": {$nin: ["Staten Island", "Queens", "Bronx", "Bro
 db.restaurants.find({"grades.score": {$lte: 10}}, {_id: 0, restaurant_id: 1, name: 1, borough: 1, cuisine: 1})
 
 // 21. Trobar restaurants que preparen peix, no 'American' ni 'Chinees', o nom comença amb 'Wil'.
-db.restaurants.find({$or: [{"name": {$regex: /^Wil.*/}}, {"cuisine": {$regex: /^fish.*/}], "cuisine": {$nin: ["American", "Chineese"]}}, {_id: 0})
+db.restaurants.find({ $or: [{ "name": { $regex: /^Wil.*/ } }, { "cuisine": { $regex: /^fish.*/ } }], "cuisine": {$nin: ["American", "Chineese"]}}, {_id: 0})
 
 // 22. Trobar restaurant_id, name, i grades per grau "A", score 11, i data "2014-08-11T00:00:00Z".
 db.restaurants.find({$and: [{"grades.score": {$gt: 80}}, {"grades.score": {$lt: 100}}]},{"_id": 0, "restaurant_id": 1, "name": 1, "grades.grade": 1, "grades.score": 1})
@@ -68,7 +68,8 @@ db.restaurants.find({$and: [{"grades.score": {$gt: 80}}, {"grades.score": {$lt: 
 db.restaurants.find({"grades.1.grade": "A", "grades.1.score": 9, "grades.1.date": ISODate("2014-08-11T00:00:00Z")}, {_id: 0, restaurant_id: 1, name: 1, grades: 1})
 
 // 24. Trobar el restaurant_id, name, street, zipcode i coordenades dels restaurants a menys de 5 km de [-74, 40.7].
-db.restaurants.find({location: {$nearSphere: {$geometry: {type: "Point", coordinates: [-74, 40.7]}, $maxDistance: 5000}}}, {"_id": 0, "restaurant_id": 1, "address.street": 1, "address.zipcode": 1, "location.coordinates": 1})
+db.restaurants.createIndex({"location": "2dsphere"})
+db.restaurants.find({ location: { $nearSphere: { $geometry: { type: "Point", coordinates: [-74, 40.7] }, $maxDistance: 5000 } } }, { "_id": 0, "restaurant_id": 1, "address.street": 1, "address.zipcode": 1, "location.coordinates": 1 })
 
 // 25. Ordenar els noms dels restaurants en ordre ascendent, mostrant totes les columnes.
 db.restaurants.find().sort({name: 1})
@@ -92,4 +93,4 @@ db.restaurants.find({"grades.score": {$mod: [7, 0]}},{"_id": 0, "restaurant_id":
 db.restaurants.find({"name": {$regex: 'mon'}},{"_id": 0, "name": 1, "borough": 1, "location.coordinates.1": 0,"location.coordinates.1": 1, "cuisine": 1})
 
 // 32. Mostrar restaurant_id, name i grade i score de més de 80 però menys que 100.
-db.restaurants.find({$and[{"grades.score": {$gt: 80}}, {"grades.score": {$lt: 100}}]},{"_id": 0, "restaurant_id": 1, "name": 1, "grades.grade": 0, "grades.score": 1})
+db.restaurants.find({$and: [{"grades.score": {$gt: 80}}, {"grades.score": {$lt: 100}}]}, {"_id": 0, "restaurant_id": 1, "name": 1, "grades.grade": 0, "grades.score": 1})
