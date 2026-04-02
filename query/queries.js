@@ -11,23 +11,18 @@ db.restaurants.find({},{_id: 0, restaurant_id: 1, name: 1, borough: 1, cuisine: 
 db.restaurants.find({}, {_id: 0, restaurant_id: 1, name: 1, borough: 1, address: { zipcode: 1}})
 
 // 5. Mostrar tots els restaurants que estan en el Bronx.
-db.restaurants.createIndex({borough: 1})
 db.restaurants.find({'borough': 'Bronx'}, {_id: 0})
 
 // 6. Mostrar els primers 5 restaurants que estan en el Bronx.
-db.restaurants.createIndex({borough: 1})
 db.restaurants.find({'borough': 'Bronx'}, {_id: 0}).limit(5)
 
 // 7. Mostrar el pròxims 5 restaurants després de saltar els primers 5 del Bronx.
-db.restaurants.createIndex({borough: 1})
 db.restaurants.find({'borough': 'Bronx'}, {_id: 0}).skip(5).limit(5)
 
 // 8. Trobar els restaurants amb un score de més de 90.
-db.restaurants.createIndex({borough: 1})
 db.restaurants.find({'borough': 'Bronx'}, {_id: 0}).skip(5).limit(5)
 
 // 9. Trobar els restaurants amb un score de més de 80 però menys que 100.
-db.restaurants.createIndex({"grades.score": 1})
 db.restaurants.find({['grades.score']: {$gt: 80, $lt: 100}}, {_id: 0})
 
 // 10. Trobar els restaurants amb longitud menor que -95.754168.
@@ -73,7 +68,6 @@ db.restaurants.find({$and: [{"grades.score": {$gt: 80}}, {"grades.score": {$lt: 
 db.restaurants.find({"grades.1.grade": "A", "grades.1.score": 9, "grades.1.date": ISODate("2014-08-11T00:00:00Z")}, {_id: 0, restaurant_id: 1, name: 1, grades: 1})
 
 // 24. Trobar el restaurant_id, name, street, zipcode i coordenades dels restaurants a menys de 5 km de [-74, 40.7].
-db.restaurants.createIndex({"location": "2dsphere"})
 db.restaurants.find({location: {$nearSphere: {$geometry: {type: "Point", coordinates: [-74, 40.7]}, $maxDistance: 5000}}}, {"_id": 0, "restaurant_id": 1, "address.street": 1, "address.zipcode": 1, "location.coordinates": 1})
 
 // 25. Ordenar els noms dels restaurants en ordre ascendent, mostrant totes les columnes.
