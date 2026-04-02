@@ -1,7 +1,9 @@
-db.restaurants.createIndex({
-  "borough": 1, 
-  "cuisine": 1, 
-  "grades.score": 1, 
-  "name": 1, 
-  "address.street": 1
-})
+db.restaurants.createIndex({ borough: 1 })
+
+db.restaurants.createIndex({ cuisine: 1 })
+
+db.restaurants.createIndex({ name: 1 })
+
+db.restaurants.createIndex({ "grades.score": 1 })
+
+db.restaurants.createIndex({ "address.street": 1 })
