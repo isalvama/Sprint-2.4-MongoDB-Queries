@@ -100,7 +100,7 @@
 10. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"location.coordinates.0": {$lt: -95.754168}}, {_id: 0})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 0 ms
 - 📚 **Documents returned**: 0
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -155,7 +155,7 @@
 15. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"name": {$regex: /ces$/, $options: "i"}}, {_id: 0, restaurant_id: 1, name: 1, borough: 1, cuisine: 1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 2 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 2
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -177,7 +177,7 @@
 17. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"borough": "Bronx", $or: [{"cuisine": 'American'}, {"cuisine": "Chinese"}]}, {_id: 0})`
-- ⏱️ **Execution time**: 0 ms
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 22
 - 🔍 **Documents examined**: 54
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -210,7 +210,7 @@
 20. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"grades.score": {$lte: 10}}, {_id: 0, restaurant_id: 1, name: 1, borough: 1, cuisine: 1})`
-- ⏱️ **Execution time**: 2 ms
+- ⏱️ **Execution time**: 4 ms
 - 📚 **Documents returned**: 612
 - 🔍 **Documents examined**: 612
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -221,7 +221,7 @@
 21. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({ $or: [{ "name": { $regex: /^Wil/ } }, { "cuisine": { $regex: /fish/ } }], "cuisine": {$nin: ["American", "Chineese"]}}, {_id: 0})`
-- ⏱️ **Execution time**: 2 ms
+- ⏱️ **Execution time**: 3 ms
 - 📚 **Documents returned**: 1
 - 🔍 **Documents examined**: 403
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -235,7 +235,7 @@
 22. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({$and: [{"grades.grade": "A"}, {"grades.score": 11}, {["grades.date"]: ISODate("2014-08-11T00:00:00Z")}]},{_id: 0, restaurant_id: 1, name: 1, grades: 1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 2 ms
 - 📚 **Documents returned**: 2
 - 🔍 **Documents examined**: 256
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -249,7 +249,7 @@
 23. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"grades.1.grade": "A", "grades.1.score": 9, "grades.1.date": ISODate("2014-08-11T00:00:00Z")}, {_id: 0, restaurant_id: 1, name: 1, grades: 1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 2 ms
 - 📚 **Documents returned**: 0
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -260,7 +260,7 @@
 24. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0}).sort({name: 1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 2 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -271,7 +271,7 @@
 25. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0}).sort({name: -1})`
-- ⏱️ **Execution time**: 1 ms
+- ⏱️ **Execution time**: 4 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_SIMPLE
@@ -282,7 +282,7 @@
 26. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({},{_id: 0}).sort({"cuisine": 1, "borough": -1})`
-- ⏱️ **Execution time**: 2 ms
+- ⏱️ **Execution time**: 3 ms
 - 📚 **Documents returned**: 664
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: SORT
@@ -337,7 +337,7 @@ db.restaurants.createIndex({ location.coordinates: 1 });
 29. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({"grades.score": {$mod: [7, 0]}},{"_id": 0, "restaurant_id": 1, "name": 1, "grades.grade": 1})`
-- ⏱️ **Execution time**: 4 ms
+- ⏱️ **Execution time**: 7 ms
 - 📚 **Documents returned**: 262
 - 🔍 **Documents examined**: 664
 - 🛠️ **Execution stage**: PROJECTION_DEFAULT
@@ -348,7 +348,7 @@ db.restaurants.createIndex({ location.coordinates: 1 });
 30. ## 📊 Query Performance Report
 
 - 🧪 **Query**: `db.restaurants.find({$or: [{"name": {$regex: /^Mon/}}, {"name": {$regex: /mon/}}, {"name": {$regex: /mon$/}}]},{"_id": 0, "name": 1, "borough": 1, "location.coordinates.0": 1,"location.coordinates.1": 1, "cuisine": 1})`
-- ⏱️ **Execution time**: 2 ms
+- ⏱️ **Execution time**: 1 ms
 - 📚 **Documents returned**: 9
 - 🔍 **Documents examined**: 9
 - 🛠️ **Execution stage**: PROJECTION_DEFAULT
