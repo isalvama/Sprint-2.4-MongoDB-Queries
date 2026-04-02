@@ -4,7 +4,7 @@ db.restaurants.createIndex({ cuisine: 1 })
 
 db.restaurants.createIndex({ name: 1 })
 
-db.restaurants.createIndex({"location.coordinates": "2dsphere"})
+db.restaurants.createIndex({"location": "2dsphere"})
 
 db.restaurants.createIndex({ "grades.score": 1 })
 
