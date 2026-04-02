@@ -69,6 +69,7 @@ db.restaurants.find({"grades.1.grade": "A", "grades.1.score": 9, "grades.1.date"
 
 // 24. Trobar el restaurant_id, name, street, zipcode i coordenades dels restaurants a menys de 5 km de [-74, 40.7].
 
+
 // 25. Ordenar els noms dels restaurants en ordre ascendent, mostrant totes les columnes.
 db.restaurants.find({},{_id: 0}).sort({name: 1})
 
