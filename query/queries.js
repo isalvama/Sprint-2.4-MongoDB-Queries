@@ -89,7 +89,7 @@ db.restaurants.find({"address.coordinates": {$type: "double"}},{"_id": 0, "name"
 db.restaurants.find({"grades.score": {$mod: [7, 0]}},{"_id": 0, "restaurant_id": 1, "name": 1, "grades.grade": 1})
 
 // 31. Trobar name, borough, longitud, latitud i cuisine per noms que contenen 'mon'.
-db.restaurants.find({"name": {$regex: 'mon'}},{"_id": 0, "name": 1, "borough": 1, "location.coordinates.1": 0,"location.coordinates.1": 1, "cuisine": 1})
+db.restaurants.find({"name": {$regex: 'mon'}},{"_id": 0, "name": 1, "borough": 1, "location.coordinates.0": 1,"location.coordinates.1": 1, "cuisine": 1})
 
 // 32. Mostrar restaurant_id, name i grade i score de més de 80 però menys que 100.
-db.restaurants.find({$and: [{"grades.score": {$gt: 80}}, {"grades.score": {$lt: 100}}]}, {"_id": 0, "restaurant_id": 1, "name": 1, "grades.grade": 0, "grades.score": 1})
+db.restaurants.find({$and: [{"grades.score": {$gt: 80}}, {"grades.score": {$lt: 100}}]}, {"_id": 0, "restaurant_id": 1, "name": 1, "grades.grade": 1, "grades.score": 1})
